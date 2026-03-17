@@ -233,31 +233,31 @@ Request header: `Content-Type: application/json` and `Authorization: Bearer {tok
 - Event `emit`: Echo message to sender
 
   ```js
-  socket.emit('emit', 'Hello');
+  socket.emit("emit", "Hello");
   ```
 
 - Event `broadcast`: Broadcast message to all clients in the current namespace except the sender
 
   ```js
-  socket.emit('broadcast', 'Hello');
+  socket.emit("broadcast", "Hello");
   ```
 
 - Event `broadcast-all`: Broadcast message to all clients in the current namespace include the sender
 
   ```js
-  socket.emit('broadcast-all', 'Hello');
+  socket.emit("broadcast-all", "Hello");
   ```
 
 - Event `join-room`: Join a room
 
   ```js
-  socket.emit('join-room', 'game');
+  socket.emit("join-room", "game");
   ```
 
 - Event `emit-in-room`: Send message to all clients in the room except the sender
 
   ```js
-  socket.emit('join-room', { room: 'game', event: 'chat', msg: 'Hello' });
+  socket.emit("join-room", { room: "game", event: "chat", msg: "Hello" });
   ```
 
 ### GraphQL
@@ -283,8 +283,16 @@ Request header: `Content-Type: application/json` and `Authorization: Bearer {tok
 - Get an object by name, search by property
 
   ```gql
-  query getData($objectName: String!, $objectKey: String!, $objectValue: ObjectValue) {
-    getObjectByKey(objectName: $objectName, objectKey: $objectKey, objectValue: $objectValue)
+  query getData(
+    $objectName: String!
+    $objectKey: String!
+    $objectValue: ObjectValue
+  ) {
+    getObjectByKey(
+      objectName: $objectName
+      objectKey: $objectKey
+      objectValue: $objectValue
+    )
   }
   ```
 
@@ -343,8 +351,16 @@ Request header: `Content-Type: application/json` and `Authorization: Bearer {tok
 - Update an object
 
   ```gql
-  query UpdateObject($objectName: String!, $objectId: ID!, $objectData: JSONScalarType!) {
-    updateObject(objectName: $objectName, objectId: $objectId, objectData: $objectData)
+  query UpdateObject(
+    $objectName: String!
+    $objectId: ID!
+    $objectData: JSONScalarType!
+  ) {
+    updateObject(
+      objectName: $objectName
+      objectId: $objectId
+      objectData: $objectData
+    )
   }
   ```
 
@@ -396,4 +412,4 @@ For example, setting:
   proxyUrl: '/api',
 ```
 
-will create a proxy server to forward API requests from `http://localhost:8000/api/foo/bar` to `http://example.org/api/foo/bar`.
+# will create a proxy server to forward API requests from `http://localhost:8000/api/foo/bar` to `http://example.org/api/foo/bar`.
